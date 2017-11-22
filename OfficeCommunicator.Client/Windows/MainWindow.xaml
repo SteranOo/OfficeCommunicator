@@ -1,0 +1,61 @@
+﻿<Window x:Class="OfficeCommunicator.Client.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OfficeCommunicator.Client.Windows"
+        mc:Ignorable="d"
+        Title="Office Communicator" Loaded="MainWindow_OnLoaded" Height="600" Width="800" WindowStartupLocation="CenterScreen" Background="#FFB4D7FA">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Content="Login: NULL" Name="LblLogin"  Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom"></Label>
+            <Label Content="Users" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom"></Label>
+            <ListBox Name="LbUsers" Grid.Row="2" Margin="5, 5, 5, 10" HorizontalContentAlignment="Center" SelectionChanged="LbUsers_SelectionChanged"></ListBox>
+        </Grid>
+        <TabControl Grid.Column="1" Grid.Row="0" Margin="10">
+            <TabItem Header="Chat" Width="100">
+                <Grid Background="AntiqueWhite">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="80"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="TbChatLog" IsReadOnly="True" Grid.Row="0" Grid.ColumnSpan="2" Margin="5"></TextBox>
+                    <TextBox Name="TbMessage" Grid.Row="1" Grid.Column="0" Margin="5"></TextBox>
+                    <Button Name="BtnSend" Content="SEND" Grid.Row="1" Grid.Column="1" Width="70" Height="40" Click="BtnSend_Click"></Button>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Call"  Width="100">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="../Resources/placeholder-user.png" Grid.Row="0" Grid.ColumnSpan="5" Margin="5"></Image>
+                    <Button Content="CALL" Grid.Row="1" Grid.Column="1" Width="100" Height="40"></Button>
+                    <Button Content="STOP" Grid.Row="1" Grid.Column="1" Width="100" Height="40"></Button>
+                    <Button Content="VIDEO CALL" Grid.Row="1" Grid.Column="2" Width="100" Height="40"></Button>
+                    <Button Content="STOP" Grid.Row="1" Grid.Column="2" Width="100" Height="40"></Button>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
